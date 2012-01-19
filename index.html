@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Zine Development site</title>
+
+<link rel="stylesheet" type="text/css" href="zine/css/zine.main.css" />
+
+<link rel="stylesheet" type="text/css" href="css/pagestyles.css" />
+
+<script type="text/javascript" src="zine/js/jquery.js"></script>
+<script type="text/javascript" src="zine/js/jquery.extendAnimation.js"></script>
+<script type="text/javascript" src="zine/js/jquery.rotate.js"></script>
+
+
+<script>
+	$(document).ready(function(){
+		$('#frame').css({
+			width: $(window).width()+"px",
+			height: $(window).height()+"px"
+		});
+	});
+</script>
+
+<script type="text/javascript" src="zine/js/zine.main.js"></script>
+<script type="text/javascript" src="zine/js/zine.transitions.js"></script>
+
+<script>
+
+	$(document).ready(function(){
+							   
+							   
+		$('#p2').bind('onPrepare',function(){
+//					console.log("Preparing page 2");						   
+				});
+							   
+		$('#p2').bind('onActive',function(){
+//					console.log("Page 2 active");						   
+				});
+		$('#p1').bind('onPrepare',function(){
+//					console.log("Preparing page 1");						   
+				});
+							   
+		$('#p1').bind('onActive',function(){
+//					console.log("Page 1 active");						   
+				});
+					
+					
+		$('#p1').bind('onInactive',function(){
+//					console.log("Page 1 inactive");						   
+				});
+							   
+		$('#p2').bind('onInactive',function(){
+//					console.log("Page 2 inactive");						   
+				});
+							   
+		Zine.init({
+				frameId: 'frame',
+				pageClass: 'page',
+				bottomNav: '#navbar',
+				loop: true,
+				loopSkipsHomepage: false
+		});
+	});
+
+
+
+
+
+	function test()
+	{
+		if(Zine.activePageIndex==0){
+			Zine.transition(1);
+		}else{
+			Zine.transition(0);
+		};
+	};
+	
+	function trans(type)
+	{
+		if(Zine.activePageIndex==0){
+			var target = 1;
+		}else{
+			var target = 0;
+		};
+		
+		Zine.transition(target,type);
+	};
+	
+	
+	
+	
+	
+	$(document).ready(function(){
+							   
+							   
+							   
+			
+			for( type in Zine.transitions )
+			{
+				var btn = document.createElement("button");
+					btn.innerHTML = type;
+					btn.ttype = type;
+					btn.onclick = function(){
+						trans(this.ttype);
+						return false;
+					};
+				
+		//		document.getElementById('buttons').appendChild(btn);
+				
+			};
+							   
+							   
+	});
+	
+</script>
+
+<style>
+	* {
+		margin:0px;
+		padding:0px;
+		overflow:hidden;
+	}
+
+	#frame {
+		width:100%;
+		height:724px;
+		margin:0px;
+		border:1px solid #aaa;
+	}
+	
+	
+	
+	#p2 {
+		background-color:#FFC;	
+	}
+	
+	
+	#buttons {
+		position:absolute;
+		left:0px;
+		bottom:0px;
+	}
+	
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+	<div id="frame">
+    	
+    </div>
+
+
+
+	<div class="page" id="p1" 
+    	data-content="load::page1" 
+        data-stylesheet="page1"
+        data-javascript="page1" 
+        data-onprepare="page1.prepare()"
+        data-onshow="page1.show()">
+    </div>
+
+	<div class="page" id="p2">
+    	<br />
+        <h3>Page 2 has different content, and a picture</h3>
+        <img src="pimp.png" />
+    </div>
+
+	<div class="page" id="p3">
+    	<h2>This is page 3</h2>
+    </div>
+
+	<div class="page" id="p4">
+    	<h2>This is page 4</h2>
+    </div>
+
+	<div class="page" id="p5">
+    	<h2>This is page 5</h2>
+    </div>
+
+
+	<div id="navbar">
+    	<img src="zine/img/arrow-left.png" class="arrow-back" />
+    	<img src="zine/img/arrow-right.png" class="arrow-next" />
+    </div>
+    
+    
+    
+
+<div id="buttons"></div>
+
+
+</body>
+</html>

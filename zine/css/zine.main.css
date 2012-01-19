@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+	.zine-frame * {
+		margin:0px;
+		padding:0px;
+	}
+
+	.zine-frame {
+		box-shadow:0px 0px 50px #000;	
+		padding:0px;
+		position:relative;
+		overflow:hidden;
+	}
+	
+	
+	.zine-page-wrap {
+		position:absolute;
+		width:100%;
+		height:100%;
+		background-color:yellow;
+	}
+	.zine-page-wrap.hidden {
+		display:none;
+	}
+	
+	.zine-page {
+		position:relative;
+		padding:0px;
+		margin:0px;
+		display:block;
+	}
+	
+	
+	
+	
+	
+	
+	.zine-bottom-nav {
+		text-align:center;
+		height:30px;
+		overflow:visible;
+		background-color:rgba(0,0,0,0.8);
+	}
+	
+	.zine-bottom-nav .arrow-back {
+		position:absolute;
+		left:4px;
+		bottom:4px;
+		cursor:pointer;
+	}
+	
+	.zine-bottom-nav .arrow-next {
+		position:absolute;
+		right:4px;
+		bottom:4px;
+		cursor:pointer;
+	}
+	
+	
+	.zine-nav-blobwrap {
+		margin:auto;
+		width:auto;
+	}
+	
+	.zine-nav-blob-outer {
+		border-radius:4px;
+		height:20px;
+		width:15px;
+		float:left;
+		margin-right:3px;
+	}
+	
+	.zine-nav-blob-outer.active {
+	}
+	
+	
+	.zine-nav-blob-inner {
+		background-color:#444;
+		background-color:rgba(250,250,250,0.5);
+		border-radius:2px;
+		height:10px;
+		width:8px;
+		margin:auto;
+		margin-top:5px;
+		cursor:pointer;
+		border:1px solid #444;
+		border:1px solid rgba(0,0,0,0.5);
+	}
+	
+	.zine-nav-blob-outer.active .zine-nav-blob-inner {
+		border:1px solid #888;
+		background-color:#069;
+	}
+
+	
+	.zine-nav-blob-inner:hover {
+		background-color:rgba(0,0,0,0.8);
+	}
+	
+	
